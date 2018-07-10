@@ -35,18 +35,18 @@ before_build:
   - nuget sources add -name core -source https://ci.appveyor.com/nuget/ospsuite-core
   - nuget restore
 
-build: off
-  #verbosity: minimal
-  #project: MoBi.sln
+build:
+  verbosity: minimal
+  project: MoBi.sln
 
-#test:
- # assemblies:
-  #  - MoBi.Tests.dll
-   # - MoBi.UI.Tests.dll
+test:
+  assemblies:
+    - MoBi.Tests.dll
+    - MoBi.UI.Tests.dll
 
-  #categories:
-   # except:
-    #  - IntegrationTests
+  categories:
+    except:
+      - IntegrationTests
 
 skip_commits:
   files:
