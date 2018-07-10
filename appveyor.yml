@@ -10,6 +10,7 @@ clone_depth: 1
 
 install:
   - git submodule update --init --recursive
+  - ps: [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls1
 
 assembly_info:
   patch: true
@@ -33,18 +34,18 @@ before_build:
   - nuget sources add -name core -source https://ci.appveyor.com/nuget/ospsuite-core
   - nuget restore
 
-build:
-  verbosity: minimal
-  project: MoBi.sln
+build: off
+  #verbosity: minimal
+  #project: MoBi.sln
 
-test:
-  assemblies:
-    - MoBi.Tests.dll
-    - MoBi.UI.Tests.dll
+#test:
+ # assemblies:
+  #  - MoBi.Tests.dll
+   # - MoBi.UI.Tests.dll
 
-  categories:
-    except:
-      - IntegrationTests
+  #categories:
+   # except:
+    #  - IntegrationTests
 
 skip_commits:
   files:
@@ -62,7 +63,7 @@ pull_requests:
   do_not_increment_build_number: true     
 
 
-notifications:
-  - provider: Slack
-    incoming_webhook:      
-      secure: 4MH9Em6TtrKalq6808dhPOqypTfYBJvVlqPaa9akNyF1h7st5qNdNezFp6T+bWXqrcZ4q/smtPcJ7LkUFHL46JDYUFlIL8FDz+ApX/vP+x0=
+#notifications:
+ # - provider: Slack
+  #  incoming_webhook:      
+   #   secure: 4MH9Em6TtrKalq6808dhPOqypTfYBJvVlqPaa9akNyF1h7st5qNdNezFp6T+bWXqrcZ4q/smtPcJ7LkUFHL46JDYUFlIL8FDz+ApX/vP+x0=
