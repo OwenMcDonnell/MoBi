@@ -21,7 +21,7 @@ cache:
 
 
 install:
-- set PATH=C:\Ruby22\bin;%PATH%
+- set PATH=C:\Ruby25\bin;%PATH%
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 - git submodule update --init --recursive
 #- ps: |
